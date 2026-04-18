@@ -7,9 +7,8 @@ import (
 )
 
 type Config struct {
-	Port   string
-	DBPath string
-	DNS    string
+	Port string
+	DNS  string
 }
 
 var db *gorm.DB
@@ -30,11 +29,9 @@ func GetSqlite() *gorm.DB {
 }
 
 func Load() Config {
-	path := "./db/main.db"
 
 	return Config{
-		Port:   ":8080",
-		DNS:    path + "?_pragma=foreign_keys(1)",
-		DBPath: path,
+		Port: ":8080",
+		DNS:  "./main.db?_pragma=foreign_keys(1)",
 	}
 }
